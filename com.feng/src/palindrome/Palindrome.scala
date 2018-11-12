@@ -35,8 +35,8 @@ object Palindrome {
       var j = str.length - 1
       var flag = 0
       while (i <= j && flag == 0) {
-        while (!isAlphanumeric(str.charAt(i))) i = i + 1
-        while (!isAlphanumeric(str.charAt(j))) j = j - 1
+        while (i < j && !isAlphanumeric(str.charAt(i))) i = i + 1
+        while (i < j && !isAlphanumeric(str.charAt(j))) j = j - 1
         if (!ignoreCase(str.charAt(i), str.charAt(j))) flag = 1
         i = i + 1
         j = j - 1
@@ -47,7 +47,7 @@ object Palindrome {
   }
 
   def main(args: Array[String]): Unit = {
-    val str = "adbc 123321     cbda"
+    val str = "A man, a plan, a canal: Panama"
     println(isPalindrome(str))
   }
 
